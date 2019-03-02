@@ -67,7 +67,7 @@ class IndexController extends Controller
                 'connect_timeout' => '50',
                 'timeout' => '50'
             ]);
-            $getSiteUrl=DB::table('site_url')->where('site','websiteoutlook')->where('type','add')->first();
+            $getSiteUrl=DB::table('site_url')->where('site','tracemyip')->where('type','add')->first();
             if(empty($getSiteUrl->site)){
                 DB::table('site_url')->insert(
                     [
