@@ -47,6 +47,7 @@
                             @endif
                             <li class="list-group-item">
                                 <h3><a href="{!! route('view.ip',$item->ip) !!}">{!! $item->ip !!}</a></h3>
+                                <small>{!! $item->updated_at !!}</small>
                             </li>
                         @endforeach
                     </ul>
