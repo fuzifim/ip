@@ -28,30 +28,30 @@ class IndexController extends Controller
     }
     public function index(Request $request){
         $page = $request->has('page') ? $request->query('page') : 1;
-        $listDomains = Cache::store('memcached')->remember('listDomains_page_'.$page,1, function()
+        $listIp = Cache::store('memcached')->remember('listIp_page_'.$page,1, function()
         {
-            return DB::table('domains')->where('status','active')->orderBy('updated_at','desc')->simplePaginate(15);
+            return DB::table('ips')->where('status','active')->orderBy('updated_at','desc')->simplePaginate(20);
         });
         return view('index',array(
-            'listDomains'=>$listDomains
+            'listIp'=>$listIp
         ));
     }
-    public function viewDomain(Request $request){
-        $domain = $request->route('domain');
-        if(!empty($domain)){
-            $getDomain = Cache::store('memcached')->remember('domain_'.base64_encode($domain),1, function() use($domain)
+    public function viewIp(Request $request){
+        $ip = $request->route('ip');
+        if(!empty($ip)){
+            $getIp = Cache::store('memcached')->remember('ip_'.base64_encode($ip),1, function() use($ip)
             {
-                return DB::table('domains')->where('base_64',base64_encode($domain))
+                return DB::table('ips')->where('base_64',base64_encode($ip))
                     ->where('status','active')
                     ->first();
             });
             $listNew = Cache::store('memcached')->remember('listNew',1, function()
             {
-                return DB::table('domains')->where('status','active')->orderBy('updated_at','desc')->take(20)->get();
+                return DB::table('ips')->where('status','active')->orderBy('updated_at','desc')->take(20)->get();
             });
-            if(!empty($getDomain->domain)){
-                return view('viewDomain',array(
-                    'domain'=>$getDomain,
+            if(!empty($getIp->ip)){
+                return view('viewIp',array(
+                    'ip'=>$getIp,
                     'listNew'=>$listNew
                 ));
             }

@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'home',
+    'uses' => 'IndexController@index']);
 Route::get('/getIpFromUrl', ['as' => 'get.ip.from.url',
     'uses' => 'IndexController@getIpFromUrl']);
+Route::get('/{ip}', ['as' => 'view.ip',
+    'uses' => 'IndexController@viewIp']);
