@@ -28,7 +28,7 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{!! $ip->ip !!}</h5>
+                        <h5 class="card-title"><strong>Ip Address: </strong>{!! $ip->ip !!}</h5>
                         <p><strong>City: </strong>{!! $ip->city !!}</p>
                         <p><strong>Country: </strong>{!! $ip->country !!}</p>
                         <p><strong>Company: </strong>{!! $ip->org !!}</p>
