@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title', $ip->ip)
-@section('description', '')
+@section('description', $ip->city.' - '.$ip->country.' - '.$ip->org)
 @section('header')
     @include('header')
 @endsection
@@ -16,16 +16,16 @@
                     </div>
                     <div class="btn-group d-flex" role="group"><a class="btn btn-success w-100" href="https://cungcap.net" target="_blank"><h4>Đăng tin miễn phí</h4></a></div>
                 </div>
-                {{--<div class="form-group mt-2">--}}
-                    {{--<ins class="adsbygoogle"--}}
-                         {{--style="display:block"--}}
-                         {{--data-ad-client="ca-pub-6739685874678212"--}}
-                         {{--data-ad-slot="7536384219"--}}
-                         {{--data-ad-format="auto"></ins>--}}
-                    {{--<script>--}}
-                        {{--(adsbygoogle = window.adsbygoogle || []).push({});--}}
-                    {{--</script>--}}
-                {{--</div>--}}
+                <div class="form-group mt-2">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6739685874678212"
+                         data-ad-slot="7536384219"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{!! $ip->ip !!}</h5>
@@ -38,16 +38,16 @@
                         <p><strong>Updated at: </strong>{!! $ip->updated_at !!}</p>
                     </div>
                 </div>
-                {{--<div class="form-group mt-2">--}}
-                    {{--<ins class="adsbygoogle"--}}
-                         {{--style="display:block"--}}
-                         {{--data-ad-client="ca-pub-6739685874678212"--}}
-                         {{--data-ad-slot="7536384219"--}}
-                         {{--data-ad-format="auto"></ins>--}}
-                    {{--<script>--}}
-                        {{--(adsbygoogle = window.adsbygoogle || []).push({});--}}
-                    {{--</script>--}}
-                {{--</div>--}}
+                <div class="form-group mt-2">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6739685874678212"
+                         data-ad-slot="7536384219"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
             <div class="col-md-4">
                 @if(count($listNew))
